@@ -1,0 +1,225 @@
+---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 23/02/21 11:48 PM
+Description: Watching Server
+
+java.lang.Error: Watchdog
+	at sun.nio.fs.WindowsNativeDispatcher.CreateFile0(Native Method)
+	at sun.nio.fs.WindowsNativeDispatcher.CreateFile(Unknown Source)
+	at sun.nio.fs.WindowsChannelFactory.open(Unknown Source)
+	at sun.nio.fs.WindowsChannelFactory.newFileChannel(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.checkReadAccess(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.checkAccess(Unknown Source)
+	at java.nio.file.Files.exists(Unknown Source)
+	at x.a(SourceFile:558)
+	at x.a(SourceFile:552)
+	at cyg$a.a(SourceFile:359)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:574)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:830)
+	at net.minecraft.server.MinecraftServer.w(SourceFile:670)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:257)
+	at net.minecraft.server.MinecraftServer$$Lambda$3235/857154987.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at sun.nio.fs.WindowsNativeDispatcher.CreateFile0(Native Method)
+	at sun.nio.fs.WindowsNativeDispatcher.CreateFile(Unknown Source)
+	at sun.nio.fs.WindowsChannelFactory.open(Unknown Source)
+	at sun.nio.fs.WindowsChannelFactory.newFileChannel(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.checkReadAccess(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.checkAccess(Unknown Source)
+	at java.nio.file.Files.exists(Unknown Source)
+	at x.a(SourceFile:558)
+	at x.a(SourceFile:552)
+	at cyg$a.a(SourceFile:359)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:574)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:830)
+	at net.minecraft.server.MinecraftServer.w(SourceFile:670)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:257)
+
+-- Thread Dump --
+Details:
+	Threads: "IO-Worker-485" Id=508 TIMED_WAITING on java.util.concurrent.SynchronousQueue$TransferStack@30a5ccf6
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$TransferStack@30a5ccf6
+	at java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(Unknown Source)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(Unknown Source)
+	at java.util.concurrent.SynchronousQueue.poll(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	...
+
+
+"IO-Worker-484" Id=507 TIMED_WAITING on java.util.concurrent.SynchronousQueue$TransferStack@30a5ccf6
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$TransferStack@30a5ccf6
+	at java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(Unknown Source)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(Unknown Source)
+	at java.util.concurrent.SynchronousQueue.poll(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	...
+
+
+"Netty Server IO #2" Id=72 RUNNABLE (in native)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@3e623492
+	-  locked java.util.Collections$UnmodifiableSet@3a5da786
+	-  locked sun.nio.ch.WindowsSelectorImpl@7f5f3ea9
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	...
+
+
+"Netty Server IO #1" Id=31 RUNNABLE (in native)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@61839fc8
+	-  locked java.util.Collections$UnmodifiableSet@4eeae1ce
+	-  locked sun.nio.ch.WindowsSelectorImpl@19dc1e02
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	...
+
+
+"Server Watchdog" Id=30 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(Unknown Source)
+	at zj.run(SourceFile:49)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Netty Server IO #0" Id=26 RUNNABLE
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@1f70c1e6
+	-  locked java.util.Collections$UnmodifiableSet@62f0601f
+	-  locked sun.nio.ch.WindowsSelectorImpl@7b0d091e
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	...
+
+
+"ObjectCleanerThread" Id=25 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@2d83473
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@2d83473
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at io.netty.util.internal.ObjectCleaner$1.run(ObjectCleaner.java:54)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Server console handler" Id=24 RUNNABLE (in native)
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(Unknown Source)
+	at java.io.BufferedInputStream.read1(Unknown Source)
+	at java.io.BufferedInputStream.read(Unknown Source)
+	-  locked java.io.BufferedInputStream@1b3eba3f
+	at sun.nio.cs.StreamDecoder.readBytes(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	-  locked java.io.InputStreamReader@7aafc1df
+	at java.io.InputStreamReader.read(Unknown Source)
+	...
+
+
+"DestroyJavaVM" Id=23 RUNNABLE
+
+
+"Server thread" Id=20 RUNNABLE (in native)
+	at sun.nio.fs.WindowsNativeDispatcher.CreateFile0(Native Method)
+	at sun.nio.fs.WindowsNativeDispatcher.CreateFile(Unknown Source)
+	at sun.nio.fs.WindowsChannelFactory.open(Unknown Source)
+	at sun.nio.fs.WindowsChannelFactory.newFileChannel(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.checkReadAccess(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.checkAccess(Unknown Source)
+	at java.nio.file.Files.exists(Unknown Source)
+	at x.a(SourceFile:558)
+	...
+
+
+"Snooper Timer" Id=21 WAITING on java.util.TaskQueue@6979626d
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@6979626d
+	at java.lang.Object.wait(Unknown Source)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+
+
+"Timer hack thread" Id=16 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at x$6.run(SourceFile:636)
+
+
+"Attach Listener" Id=5 RUNNABLE
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@2ac1b89d
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@2ac1b89d
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@444000b8
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@444000b8
+	at java.lang.Object.wait(Unknown Source)
+	at java.lang.ref.Reference.tryHandlePending(Unknown Source)
+	at java.lang.ref.Reference$ReferenceHandler.run(Unknown Source)
+
+
+
+Stacktrace:
+	at zj.run(SourceFile:65)
+	at java.lang.Thread.run(Unknown Source)
+
+-- Performance stats --
+Details:
+	Random tick rate: 3
+	Level stats: ResourceKey[minecraft:dimension / minecraft:overworld]: players: 0, entities: 672 [minecraft:sheep:221,minecraft:cow:200,minecraft:rabbit:40,minecraft:item:28,minecraft:chicken:28], block_entities: 82 [minecraft:chest:44,minecraft:mob_spawner:20,minecraft:furnace:10,minecraft:beehive:4,minecraft:blast_furnace:2], block_ticks: 82, fluid_ticks: 0, chunk_source: ServerChunkCache: 2025,
+ResourceKey[minecraft:dimension / minecraft:the_nether]: players: 0, entities: 0 [], block_entities: 0 [], block_ticks: 0, fluid_ticks: 0, chunk_source: ServerChunkCache: 0,
+ResourceKey[minecraft:dimension / minecraft:the_end]: players: 0, entities: 0 [], block_entities: 0 [], block_ticks: 0, fluid_ticks: 0, chunk_source: ServerChunkCache: 0
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_281, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1434016488 bytes (1367 MB) / 2145386496 bytes (2046 MB) up to 2145386496 bytes (2046 MB)
+	CPUs: 4
+	JVM Flags: 2 total; -Xmx2048M -Xms2048M
+	Player Count: 0 / 20; []
+	Data Packs: vanilla
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
