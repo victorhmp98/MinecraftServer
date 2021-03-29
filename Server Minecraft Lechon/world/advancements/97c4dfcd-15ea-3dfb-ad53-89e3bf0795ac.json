@@ -750,6 +750,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/food/baked_potato_from_campfire_cooking": {
+    "criteria": {
+      "has_potato": "2021-03-24 16:05:44 -0600"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/oak_slab": {
     "criteria": {
       "has_planks": "2021-02-14 16:49:22 -0600"
@@ -1246,6 +1252,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/grindstone": {
+    "criteria": {
+      "has_stone_slab": "2021-03-27 19:04:16 -0600"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/diamond_block": {
     "criteria": {
       "has_diamond": "2021-02-14 16:42:56 -0600"
@@ -1622,6 +1634,7 @@
       "cooked_beef": "2021-02-24 21:14:13 -0600",
       "beef": "2021-02-16 00:16:50 -0600",
       "apple": "2021-02-14 17:33:21 -0600",
+      "potato": "2021-03-27 20:49:18 -0600",
       "rabbit": "2021-03-07 20:45:44 -0600",
       "mutton": "2021-02-16 01:10:54 -0600",
       "bread": "2021-02-17 19:48:08 -0600",
@@ -2017,6 +2030,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/food/baked_potato_from_smoking": {
+    "criteria": {
+      "has_potato": "2021-03-24 16:05:44 -0600"
+    },
+    "done": true
+  },
   "minecraft:recipes/transportation/activator_rail": {
     "criteria": {
       "has_rail": "2021-02-17 20:48:22 -0600"
@@ -2050,6 +2069,12 @@
   "minecraft:recipes/building_blocks/granite_slab": {
     "criteria": {
       "has_granite": "2021-02-14 16:51:42 -0600"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/baked_potato": {
+    "criteria": {
+      "has_potato": "2021-03-24 16:05:44 -0600"
     },
     "done": true
   },
@@ -2479,6 +2504,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/redstone/repeater": {
+    "criteria": {
+      "has_redstone_torch": "2021-03-27 19:04:16 -0600"
+    },
+    "done": true
+  },
   "minecraft:recipes/redstone/oak_button": {
     "criteria": {
       "has_planks": "2021-02-14 16:49:22 -0600"
@@ -2590,6 +2621,12 @@
   "minecraft:recipes/transportation/jungle_boat": {
     "criteria": {
       "in_water": "2021-02-14 17:30:08 -0600"
+    },
+    "done": true
+  },
+  "minecraft:adventure/shoot_arrow": {
+    "criteria": {
+      "shot_arrow": "2021-03-29 17:19:17 -0600"
     },
     "done": true
   },
